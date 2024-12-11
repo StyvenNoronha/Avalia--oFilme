@@ -8,10 +8,9 @@
   <body>
     <h1>Teste com Flask</h1>
     <ol>
-        <li>{{conteudo}}</li>
-        <li>{{conteudo1}}</li>
-        <li>{{conteudo2}}</li>
-        <li>{{conteudo3}}</li>
+        {% for c in conteudos %}
+        <li>{{c}}</li>
+        {% endfor %}
     </ol>
 
     
