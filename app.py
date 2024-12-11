@@ -1,20 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    conteudos = [
-        'manipulação de dados',
-        'Herança e Templates',
-        'integração de APIs',
-        'Banco de dados'
 
-    ]
+conteudos = []
+@app.route('/', methods=["GET","POST"])
+def principal():
+    if request.method == "POST":
+        if request.form.get("conteudo"):
+            conteudos.append(request.form.get("conteudo"))
 
-    return render_template(
-        "index.html",
-        conteudos=conteudos,
-        )
+    return render_template("index.html",conteudos=conteudos,)
 
 @app.route('/diario')
 def diario():

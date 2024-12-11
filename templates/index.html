@@ -7,12 +7,15 @@
   </head>
   <body>
     <h1>Teste com Flask</h1>
+    <form action="{{url_for('principal')}}" method="POST">
+      <label for="conteudo">Conteúdo</label>
+      <input type="text" name="conteudo" />
+      <button>Adicionar</button>
+    </form>
     <ol>
         {% for c in conteudos %}
-        <li>{{c}}</li>
+          <li>{{c}}</li>
         {% endfor %}
     </ol>
-
-    
   </body>
 </html>
