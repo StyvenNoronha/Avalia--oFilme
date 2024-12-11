@@ -16,7 +16,14 @@ def hello():
         conteudos=conteudos,
         )
 
-@app.route('/sobre')
-def sobre():
-    return render_template("sobre.html")
+@app.route('/diario')
+def diario():
+    diario = {
+        "Fulano":5,
+        "Beltrano":5.8,
+        "Sicrano":5.2,
+        "Styven":10,
+
+    }
+    return render_template("diario.html",diario=diario)
 
