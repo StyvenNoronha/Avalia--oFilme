@@ -6,12 +6,19 @@
     <title>Sobre</title>
   </head>
   <body>
+    <form action="{{url_for('diario')}}" method="POST">
+      <label for="aluno">Nome do aluno</label>
+      <input type="text" name="aluno" required>
+      <label for="nota">nota do aluno</label>
+      <input type="text" name="nota" required>
+      <button>valor</button>
+    </form>
     <h1>Notas do aluno</h1>
     <hr />
-    {%for aluno, nota in diario.items() %}
+    {%for d in diarios %}
         <details>
-            <summary>{{aluno}}</summary>
-            <p>{{nota}}</p>
+            <summary>{{d.aluno}}</summary>
+            <p>{{d.nota}}</p>
         </details>
     {% endfor %}
   </body>

@@ -11,14 +11,19 @@ def principal():
 
     return render_template("index.html",conteudos=conteudos,)
 
-@app.route('/diario')
-def diario():
-    diario = {
-        "Fulano":5,
-        "Beltrano":5.8,
-        "Sicrano":5.2,
-        "Styven":10,
 
-    }
-    return render_template("diario.html",diario=diario)
+
+
+
+
+diarios = []
+@app.route('/diario', methods=["GET","POST"])
+def diario():
+    if request.method == "POST":
+        if request.form.get("aluno") and request.form.get("nota"):
+            aluno = request.form.get("aluno")
+            nota = request.form.get("nota")
+            diarios.append({"aluno":aluno, "nota":nota})
+    
+    return render_template("diario.html",diarios=diarios)
 
