@@ -30,7 +30,11 @@ def list_movie(props):
 
 @app.route('/livros')
 def list_books():
-    return render_template("livros.html", livro=Livro.query.all())
+    page = request.args.get('page', 1, type=int) 
+    per_page = 4
+    book_all = Livro.query.paginate(page=page, per_page=per_page)
+    return render_template("livros.html", livro=book_all)
+
 
 
 

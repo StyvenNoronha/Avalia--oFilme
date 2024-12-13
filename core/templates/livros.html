@@ -32,5 +32,14 @@
       {% endfor %}
     </tbody>
   </table>
+  {% if livro.has_prev %}
+  <a href="{{ url_for('list_books', page=livro.prev_num) }}" class="btn btn-primary">Anterior</a>
+{% endif %}
+{% if livro.has_next %}
+  <a href="{{ url_for('list_books', page=livro.next_num) }}" class="btn btn-primary">Próximo</a>
+{% else %}
+  <span class="text-muted">Livros Listados</span>
+{% endif %}
+
 </div>
 {% endblock %}
