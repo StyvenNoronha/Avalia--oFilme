@@ -31,5 +31,5 @@ def diario():
 
 @app.route('/filmes')
 def list_movie():
-    return render_template("movie.html",filmes=data_json)
+    return render_template("movie.html",filmes=data_json['results'])
 

@@ -1,0 +1,26 @@
+{%extends 'base.html' %} {%block conteudo%}
+<div class="container">
+  <h1 class="text-center">Lista de Filmes</h1>
+  <div class="row">
+    {% for f in filmes %}
+    <div class="col-lg-3">
+      <div class="thumbnail">
+        <img
+          src="http://image.tmdb.org/t/p/w500{{ f.backdrop_path }}"
+          alt="{{ f.title }}"
+        />
+        <div class="caption">
+          <h3>{{ f.title }}</h3>
+          <p>{{ f.overview }}</p>
+          <hr />
+          <h4>
+            Nota Média:
+            <span class="label label-info">{{ f.vote_average }}</span>
+          </h4>
+        </div>
+      </div>
+    </div>
+    {% endfor %} 
+    {%endblock%}
+  </div>
+</div>
