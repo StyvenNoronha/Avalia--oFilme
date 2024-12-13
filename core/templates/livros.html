@@ -11,6 +11,7 @@
         <th>Nome</th>
         <th>Descrição</th>
         <th>Valor</th>
+        <th>Ação</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,9 @@
         <td>{{ l.nome }}</td>
         <td>{{ l.descricao }}</td>
         <td>{{ l.valor }}</td>
+        <td>
+          <a href="atualiza_livro/{{l.id}}" class="btn btn-primary">Editar</a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

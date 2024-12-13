@@ -47,3 +47,22 @@ def cadastro_livros():
         return redirect(url_for('list_books'))
 
     return render_template("cadastroLivros.html")
+
+
+
+@app.route('/atualiza_livro/<int:id>', methods=["GET","POST"])
+def atualiza_livro(id):
+    livroDb = Livro.query.filter_by(id=id).first()
+    if request.method == 'POST':
+        nome = request.form['nome']
+        descricao = request.form['descricao']
+        valor = request.form['valor']
+
+        Livro.query.filter_by(id=id).update({
+            "nome":nome,
+            "valor":valor,
+            "descricao": descricao
+        })   
+        db.session.commit()
+        return redirect(url_for('list_books'))
+    return render_template("atualizaLivro.html", livro=livroDb)
