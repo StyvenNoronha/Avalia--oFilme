@@ -1,6 +1,6 @@
 from app import db
 from app import app
-from livros import Livro
+from core.livros import Livro
 
 app.app_context().push()
 db.create_all()

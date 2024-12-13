@@ -1,5 +1,5 @@
-{%extends 'base.html' %}
-{%block conteudo%}
+{% extends 'base.html' %}
+{% block conteudo %}
 <h1 class="text-center">livros</h1>
 <hr>
 <br>
@@ -13,12 +13,14 @@
         </tr>
     </thead>
     <tbody>
-        {%for b in books%}
-            <tr>b.id</tr>
-            <tr>b.nome</tr>
-            <tr>b.descricao</tr>
-            <tr>b.valor</tr>
-        {%endfor%}
+        {% for l in livro %}
+            <tr>
+                <td>{{ l.id }}</td>
+                <td>{{ l.nome }}</td>
+                <td>{{ l.descricao }}</td>
+                <td>{{ l.valor }}</td>
+            </tr>
+        {% endfor %}
     </tbody>
 </table>
-{%endblock%}
+{% endblock %}

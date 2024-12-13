@@ -1,14 +1,7 @@
-from flask import Flask, render_template, request
-from list_movie import list_movies
-from flask_sqlalchemy import SQLAlchemy
-from livros import Livro
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///livros.sqlite3'
-
-db = SQLAlchemy()
-db.init_app(app)
-
+from core import app
+from flask import render_template, request
+from core.list_movie import list_movies
+from core.livros import Livro
 conteudos = []
 @app.route('/', methods=["GET","POST"])
 def principal():
@@ -17,11 +10,6 @@ def principal():
             conteudos.append(request.form.get("conteudo"))
 
     return render_template("index.html",conteudos=conteudos,)
-
-
-
-
-
 
 diarios = []
 @app.route('/diario', methods=["GET","POST"])
@@ -42,5 +30,4 @@ def list_movie(props):
 
 @app.route('/livros')
 def list_books():
-    return render_template("livros.html", book=Livro.query.all())
-
+    return render_template("livros.html", livro=Livro.query.all())
