@@ -1,26 +1,28 @@
-{% extends 'base.html' %}
-{% block conteudo %}
-<h1 class="text-center">livros</h1>
-<hr>
-<br>
-<table class="table table-bordered table-hover">
-    <thead class="table-dark">
-        <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Descrição</th>
-          <th>Valor</th>  
-        </tr>
+{% extends 'base.html' %} {% block conteudo %}
+<div class="container">
+  <a class="btn btn-success" href="{{url_for('cadastro_livros')}}">Adicionar livros</a>
+  <h1 class="text-center">Livros</h1>
+  <hr />
+  <br />
+  <table class="table table-bordered table-hover">
+    <thead style="color: black">
+      <tr style="background-color: #333; color: white">
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+      </tr>
     </thead>
     <tbody>
-        {% for l in livro %}
-            <tr>
-                <td>{{ l.id }}</td>
-                <td>{{ l.nome }}</td>
-                <td>{{ l.descricao }}</td>
-                <td>{{ l.valor }}</td>
-            </tr>
-        {% endfor %}
+      {% for l in livro %}
+      <tr>
+        <td>{{ l.id }}</td>
+        <td>{{ l.nome }}</td>
+        <td>{{ l.descricao }}</td>
+        <td>{{ l.valor }}</td>
+      </tr>
+      {% endfor %}
     </tbody>
-</table>
+  </table>
+</div>
 {% endblock %}

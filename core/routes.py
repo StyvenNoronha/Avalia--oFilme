@@ -1,5 +1,5 @@
-from core import app
-from flask import render_template, request
+from core import app, db
+from flask import render_template, request, redirect, url_for
 from core.list_movie import list_movies
 from core.livros import Livro
 conteudos = []
@@ -31,3 +31,19 @@ def list_movie(props):
 @app.route('/livros')
 def list_books():
     return render_template("livros.html", livro=Livro.query.all())
+
+
+
+@app.route('/cadLivros', methods=["GET","POST"])
+def cadastro_livros():
+    nome = request.form.get('nome')
+    valor = request.form.get('valor')
+    descricao = request.form.get('descricao')
+
+    if request.method == 'POST':
+        livro= Livro(nome,descricao,valor)
+        db.session.add(livro)
+        db.session.commit()
+        return redirect(url_for('list_books'))
+
+    return render_template("cadastroLivros.html")
