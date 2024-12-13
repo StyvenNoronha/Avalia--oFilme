@@ -22,8 +22,12 @@
         <td>{{ l.descricao }}</td>
         <td>{{ l.valor }}</td>
         <td>
-          <a href="atualiza_livro/{{l.id}}" class="btn btn-primary">Editar</a>
+          <div class="text-center">
+            <a href="atualiza_livro/{{l.id}}" class="btn btn-primary">Editar</a>
+            <a href="delete_book/{{l.id}}" class="btn btn-danger" onclick="return confirm('Deseja remover ?')">Excluir</a>
+          </div>
         </td>
+        
       </tr>
       {% endfor %}
     </tbody>

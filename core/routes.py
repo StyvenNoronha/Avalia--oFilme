@@ -66,3 +66,12 @@ def atualiza_livro(id):
         db.session.commit()
         return redirect(url_for('list_books'))
     return render_template("atualizaLivro.html", livro=livroDb)
+
+
+@app.route('/delete_book/<int:id>')
+def remove_livro(id):
+    livroDb = Livro.query.filter_by(id=id).first()
+    if livroDb:
+        db.session.delete(livroDb)
+        db.session.commit()
+    return redirect(url_for('list_books'))
