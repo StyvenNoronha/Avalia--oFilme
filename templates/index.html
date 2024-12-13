@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index</title>
-  </head>
-  <body>
+{%extends 'base.html' %}
+{%block conteudo%}
+
     <h1>Teste com Flask</h1>
     <form action="{{url_for('principal')}}" method="POST">
       <label for="conteudo">Conteúdo</label>
@@ -17,5 +12,6 @@
           <li>{{c}}</li>
         {% endfor %}
     </ol>
-  </body>
-</html>
+
+    
+{% endblock conteudo%}

@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sobre</title>
-  </head>
-  <body>
+{%extends 'base.html' %}
+{%block conteudo%}
     <form action="{{url_for('diario')}}" method="POST">
       <label for="aluno">Nome do aluno</label>
       <input type="text" name="aluno" required>
@@ -21,5 +15,4 @@
             <p>{{d.nota}}</p>
         </details>
     {% endfor %}
-  </body>
-</html>
+{%endblock%}
