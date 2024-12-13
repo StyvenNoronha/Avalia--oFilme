@@ -1,0 +1,24 @@
+{%extends 'base.html' %}
+{%block conteudo%}
+<h1 class="text-center">livros</h1>
+<hr>
+<br>
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Valor</th>  
+        </tr>
+    </thead>
+    <tbody>
+        {%for b in books%}
+            <tr>b.id</tr>
+            <tr>b.nome</tr>
+            <tr>b.descricao</tr>
+            <tr>b.valor</tr>
+        {%endfor%}
+    </tbody>
+</table>
+{%endblock%}

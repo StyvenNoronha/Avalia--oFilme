@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from list_movie import list_movies
 from flask_sqlalchemy import SQLAlchemy
-
+from livros import Livro
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///livros.sqlite3'
@@ -38,4 +38,9 @@ def diario():
 @app.route('/filmes/<props>')
 def list_movie(props):
     return render_template("movie.html",filmes=list_movies(props))
+
+
+@app.route('/livros')
+def list_books():
+    return render_template("livros.html", book=Livro.query.all())
 
