@@ -1,7 +1,13 @@
 from flask import Flask, render_template, request
 from list_movie import list_movies
-app = Flask(__name__)
+from flask_sqlalchemy import SQLAlchemy
 
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///livros.sqlite3'
+
+db = SQLAlchemy()
+db.init_app(app)
 
 conteudos = []
 @app.route('/', methods=["GET","POST"])
